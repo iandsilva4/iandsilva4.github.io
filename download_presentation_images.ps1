@@ -1,0 +1,5 @@
+Invoke-WebRequest "https://images.squarespace-cdn.com/content/v1/6014882570d2481a55c3ce6f/1706022497267-GKW90U0ZAQD7Q6BRH0LQ/InvestingInBrands_CoverPhoto.jpg?format=1000w" -OutFile "public/presentations/InvestingInBrands_CoverPhoto.jpg"
+Invoke-WebRequest "https://images.squarespace-cdn.com/content/v1/6014882570d2481a55c3ce6f/1698600675882-R8GEQX3GZAPAV8XH536Y/Cover+Photo.jpg?format=1000w" -OutFile "public/presentations/DaveAndBusters_CoverPhoto.jpg"
+Invoke-WebRequest "https://images.squarespace-cdn.com/content/v1/6014882570d2481a55c3ce6f/1620863557593-S5M80NBY5AXJAZ6SAT6Z/StitchFix_Strategy.jpg?format=1000w" -OutFile "public/presentations/StitchFix_Strategy.jpg"
+Invoke-WebRequest "https://images.squarespace-cdn.com/content/v1/6014882570d2481a55c3ce6f/1611962392603-82VRGMOEMRH1WJLNP6LD/peloton.png?format=1000w" -OutFile "public/presentations/peloton.png"
+Invoke-WebRequest "https://images.squarespace-cdn.com/content/v1/6014882570d2481a55c3ce6f/1612642042739-2MQL3X1XNH4MZCUYOA0T/Picture1.jpg?format=1000w" -OutFile "public/presentations/storytelling.jpg" 

@@ -2,7 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 <MainLayout>
-	<main class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center md:items-start gap-8">
+	<div class="mt-8 md:mt-16 flex flex-col md:flex-row items-center md:items-start gap-8 w-full">
 		<img src="/src/images/headshot.jpg" alt="Headshot" width="320" height="320" class="w-80 h-80 rounded-xl object-cover border border-gray-300 shadow mb-6 md:mb-0" />
 		<div class="flex-1">
 			<h1 class="text-3xl font-bold mb-4">About Me</h1>
@@ -10,5 +10,5 @@ import MainLayout from '../layouts/MainLayout.astro';
 			<p class="mb-6 text-lg">I am driven by problems at the intersection of strategy & technology.</p>
 			<p class="text-base">Check out some of my <a href="/projects/" class="text-blue-600 underline">projects</a> and <a href="/contact/" class="text-blue-600 underline">get in touch</a>.</p>
 		</div>
-	</main>
+	</div>
 </MainLayout>

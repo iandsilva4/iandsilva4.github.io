@@ -7,9 +7,9 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ian D'Silva</title>
   </head>
-  <body class="bg-white min-h-screen text-gray-900">
+  <body class="bg-white min-h-screen text-gray-900 flex flex-col">
     <nav class="w-full border-b border-gray-200 bg-white sticky top-0 z-50">
-      <div class="max-w-4xl mx-auto flex items-center justify-between px-4 py-4">
+      <div class="max-w-4xl mx-auto px-4 flex items-center justify-between py-4">
         <a href="/" class="text-xl font-bold tracking-tight">Ian D'Silva</a>
         <div class="hidden md:flex space-x-6 items-center">
           <div class="relative group">
@@ -18,14 +18,22 @@ import '../styles/global.css';
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </button>
             <div class="absolute top-full left-0 w-48 bg-white border rounded shadow-lg z-20 hidden group-hover:block" style="min-width:10rem;">
-              <a href="/projects/writing/" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">Writing</a>
-              <a href="/projects/presentations/" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">Presentations</a>
-              <a href="/projects/music/" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">Music</a>
-              <a href="/projects/coding/" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">Coding</a>
+              <a href="/projects/#presentations" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">Presentations</a>
+              <a href="/projects/#writing" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">Writing</a>
+              <a href="/projects/#music" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">Music</a>
+              <a href="/projects/#coding" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">Coding</a>
             </div>
           </div>
           <a href="/contact/" class="hover:text-blue-600">Contact</a>
           <a href="/legal/" class="hover:text-blue-600">Legal</a>
+          <a href="https://x.com/iandsilva4" target="_blank" rel="noopener noreferrer" class="ml-4 hover:text-blue-600" aria-label="Twitter">
+            <svg class="w-5 h-5 inline" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 5.924c-.793.352-1.645.59-2.54.698a4.48 4.48 0 0 0 1.963-2.475 8.94 8.94 0 0 1-2.828 1.082 4.48 4.48 0 0 0-7.635 4.086A12.72 12.72 0 0 1 3.112 4.89a4.48 4.48 0 0 0 1.387 5.976 4.47 4.47 0 0 1-2.03-.561v.057a4.48 4.48 0 0 0 3.594 4.393 4.48 4.48 0 0 1-2.025.077 4.48 4.48 0 0 0 4.184 3.11A8.98 8.98 0 0 1 2 19.54a12.67 12.67 0 0 0 6.88 2.017c8.26 0 12.78-6.84 12.78-12.78 0-.195-.004-.39-.013-.583A9.22 9.22 0 0 0 24 4.59a8.93 8.93 0 0 1-2.54.698z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/ian-d-silva-a366bba6/" target="_blank" rel="noopener noreferrer" class="ml-2 hover:text-blue-600" aria-label="LinkedIn">
+            <svg class="w-5 h-5 inline" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.065-1.868-3.065-1.869 0-2.156 1.459-2.156 2.967v5.702h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.561 2.838-1.561 3.036 0 3.6 2 3.6 4.594v5.6z"/>
+            </svg>
+          </a>
         </div>
         <!-- Mobile menu button -->
         <div class="md:hidden">
@@ -35,24 +43,24 @@ import '../styles/global.css';
         </div>
       </div>
       <!-- Mobile menu (hidden by default, can be toggled with JS if desired) -->
-      <div id="mobile-menu" class="md:hidden hidden flex-col px-4 pb-4">
+      <div class="max-w-4xl mx-auto px-4 md:hidden hidden flex-col pb-4">
         <div class="block">
           <button class="w-full text-left py-2 hover:text-blue-600 flex items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
             Projects
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
           </button>
           <div class="hidden flex-col ml-4">
-            <a href="/projects/writing/" class="block py-2 hover:text-blue-600">Writing</a>
-            <a href="/projects/presentations/" class="block py-2 hover:text-blue-600">Presentations</a>
-            <a href="/projects/music/" class="block py-2 hover:text-blue-600">Music</a>
-            <a href="/projects/coding/" class="block py-2 hover:text-blue-600">Coding</a>
+            <a href="/projects/#presentations" class="block py-2 hover:text-blue-600">Presentations</a>
+            <a href="/projects/#writing" class="block py-2 hover:text-blue-600">Writing</a>
+            <a href="/projects/#music" class="block py-2 hover:text-blue-600">Music</a>
+            <a href="/projects/#coding" class="block py-2 hover:text-blue-600">Coding</a>
           </div>
         </div>
         <a href="/contact/" class="block py-2 hover:text-blue-600">Contact</a>
         <a href="/legal/" class="block py-2 hover:text-blue-600">Legal</a>
       </div>
     </nav>
-    <main class="max-w-3xl mx-auto px-4 py-8">
+    <main class="flex-1 max-w-4xl mx-auto px-4 w-full flex flex-col">
       <slot />
     </main>
   </body>
