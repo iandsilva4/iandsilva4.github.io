@@ -1,6 +1,10 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 
+// Revalidate this page every hour
+export const prerender = false;
+export const revalidate = 3600; // 1 hour in seconds
+
 // Helper to decode HTML entities
 function decodeHTMLEntities(str) {
   if (!str) return '';

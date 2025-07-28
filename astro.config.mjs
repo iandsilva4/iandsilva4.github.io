@@ -9,5 +9,9 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: 'https://iandsilva4.github.io',
-  base: '/'
+  base: '/',
+  output: 'hybrid',
+  experimental: {
+    hybridOutput: true
+  }
 });
