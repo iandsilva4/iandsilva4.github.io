@@ -8,10 +8,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://iandsilva4.github.io',
-  base: '/',
-  output: 'hybrid',
-  experimental: {
-    hybridOutput: true
-  }
+  site: process.env.URL || 'https://iandsilva4.github.io',
+  base: '/'
 });
