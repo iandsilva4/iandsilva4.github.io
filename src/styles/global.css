@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+/* Global background styling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #f0f9ff 0%, #fdf2f8 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(168, 237, 234, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(254, 214, 227, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px; /* Position section border at bottom of floating nav */
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Optimize scroll performance */
+body {
+  -webkit-overflow-scrolling: touch;
+}
