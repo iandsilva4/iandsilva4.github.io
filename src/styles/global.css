@@ -1,14 +1,717 @@
 @import "tailwindcss";
 
-/* Global background styling */
+/* ===== DESIGN SYSTEM ===== */
+
+/* ===== COLOR PSYCHOLOGY SYSTEM ===== */
+:root {
+  /* Font Families */
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Primary Brand Colors - Trust & Innovation */
+  --color-primary-50: #eff6ff;   /* Lightest blue - subtle backgrounds */
+  --color-primary-100: #dbeafe;  /* Light blue - hover states */
+  --color-primary-200: #bfdbfe;  /* Medium light blue - borders */
+  --color-primary-300: #93c5fd;  /* Medium blue - accents */
+  --color-primary-400: #60a5fa;  /* Standard blue - primary actions */
+  --color-primary-500: #3b82f6;  /* Main blue - brand color */
+  --color-primary-600: #2563eb;  /* Dark blue - hover states */
+  --color-primary-700: #1d4ed8;  /* Darker blue - active states */
+  --color-primary-800: #1e40af;  /* Very dark blue - text on light */
+  --color-primary-900: #1e3a8a;  /* Darkest blue - text on white */
+  
+  /* Secondary Colors - Strategic Thinking */
+  --color-secondary-50: #f8fafc;   /* Lightest slate - backgrounds */
+  --color-secondary-100: #f1f5f9;  /* Light slate - cards */
+  --color-secondary-200: #e2e8f0;  /* Medium light slate - borders */
+  --color-secondary-300: #cbd5e1;  /* Medium slate - dividers */
+  --color-secondary-400: #94a3b8;  /* Standard slate - secondary text */
+  --color-secondary-500: #64748b;  /* Main slate - body text */
+  --color-secondary-600: #475569;  /* Dark slate - headings */
+  --color-secondary-700: #334155;  /* Darker slate - emphasis */
+  --color-secondary-800: #1e293b;  /* Very dark slate - primary text */
+  --color-secondary-900: #0f172a;  /* Darkest slate - hero text */
+  
+  /* Accent Colors - Innovation & Creativity */
+  --color-accent-50: #fef7ee;   /* Lightest orange - warm backgrounds */
+  --color-accent-100: #fdedd4;  /* Light orange - highlights */
+  --color-accent-200: #fbd7a9;  /* Medium light orange - borders */
+  --color-accent-300: #f8bb7d;  /* Medium orange - accents */
+  --color-accent-400: #f59e0b;  /* Standard orange - CTAs */
+  --color-accent-500: #f97316;  /* Main orange - brand accent */
+  --color-accent-600: #ea580c;  /* Dark orange - hover states */
+  --color-accent-700: #c2410c;  /* Darker orange - active states */
+  --color-accent-800: #9a3412;  /* Very dark orange - text on light */
+  --color-accent-900: #7c2d12;  /* Darkest orange - text on white */
+  
+  /* Success Colors - Trust & Reliability */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  
+  /* Warning Colors - Strategic Awareness */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  
+  /* Error Colors - Professional Communication */
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  
+  /* Neutral Colors - Professional Foundation */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  
+  /* Semantic Color Mappings */
+  --color-text-primary: var(--color-secondary-800);
+  --color-text-secondary: var(--color-secondary-600);
+  --color-text-tertiary: var(--color-secondary-400);
+  --color-text-inverse: var(--color-neutral-50);
+  
+  --color-bg-primary: var(--color-neutral-50);
+  --color-bg-secondary: var(--color-secondary-50);
+  --color-bg-tertiary: var(--color-primary-50);
+  
+  --color-border-primary: var(--color-secondary-200);
+  --color-border-secondary: var(--color-primary-200);
+  --color-border-accent: var(--color-accent-200);
+  
+  /* Shadow System */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  
+  /* Animation System */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===== REFINED TYPOGRAPHY HIERARCHY ===== */
+
+/* Base Typography */
+body {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+/* Heading Typography - Strategic Scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5em;
+}
+
+/* Hero/Display Typography */
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--color-secondary-900);
+}
+
+/* Section Headings */
+h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--color-secondary-800);
+}
+
+/* Subsection Headings */
+h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--color-secondary-700);
+}
+
+/* Card/Component Headings */
+h4 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--color-secondary-700);
+}
+
+/* Small Headings */
+h5 {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--color-secondary-600);
+}
+
+/* Micro Headings */
+h6 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--color-secondary-600);
+}
+
+/* ===== ENHANCED BODY TEXT SYSTEM ===== */
+
+/* Body Text Typography */
+p {
+  font-family: var(--font-inter);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+/* Display Typography Classes */
+.display-hero {
+  font-family: var(--font-poppins);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  color: var(--color-secondary-900);
+}
+
+.display-large {
+  font-family: var(--font-poppins);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--color-secondary-900);
+}
+
+.display-medium {
+  font-family: var(--font-poppins);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--color-secondary-800);
+}
+
+.display-small {
+  font-family: var(--font-poppins);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: var(--color-secondary-800);
+}
+
+/* Body Text Variants */
+.text-body-large {
+  font-family: var(--font-inter);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.text-body-medium {
+  font-family: var(--font-inter);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.text-body-small {
+  font-family: var(--font-inter);
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  color: var(--color-text-primary);
+}
+
+/* Caption and Small Text */
+.text-caption {
+  font-family: var(--font-inter);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--color-text-tertiary);
+}
+
+.text-caption-small {
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--color-text-tertiary);
+}
+
+/* Utility Typography Classes */
+.text-overline {
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary-600);
+}
+
+.text-label {
+  font-family: var(--font-inter);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary);
+}
+
+.text-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+}
+
+/* ===== ICON SYSTEM ===== */
+
+/* Icon Base Styles */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  transition: var(--transition-normal);
+}
+
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-md {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-lg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-xl {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Skill Area Icons */
+.icon-strategy {
+  color: var(--color-primary-600);
+}
+
+.icon-technology {
+  color: var(--color-accent-500);
+}
+
+.icon-business {
+  color: var(--color-success-500);
+}
+
+.icon-innovation {
+  color: var(--color-warning-500);
+}
+
+.icon-analytics {
+  color: var(--color-secondary-600);
+}
+
+/* ===== COMPONENT SYSTEM ===== */
+
+/* Link Typography */
+a {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  color: var(--color-primary-600);
+}
+
+a:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+/* Navigation Typography */
+nav {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Override link colors for navigation */
+nav a {
+  color: var(--color-secondary-800) !important;
+}
+
+nav a:hover {
+  color: var(--color-primary-600) !important;
+}
+
+/* Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Button Variants */
+.btn-primary {
+  background-color: var(--color-primary-600);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary-600);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+  color: var(--color-text-inverse);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary-100);
+  color: var(--color-text-primary);
+  border-color: var(--color-secondary-200);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-200);
+  border-color: var(--color-secondary-300);
+  color: var(--color-text-primary);
+}
+
+.btn-accent {
+  background-color: var(--color-accent-500);
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent-500);
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-600);
+  border-color: var(--color-accent-600);
+  color: var(--color-text-inverse);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  background-color: var(--color-secondary-100);
+  color: var(--color-text-primary);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+/* Card System */
+.card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  padding: 0 1.5rem 1.5rem;
+}
+
+/* Badge System */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 9999px;
+  transition: var(--transition-fast);
+}
+
+.badge-primary {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.badge-secondary {
+  background-color: var(--color-secondary-100);
+  color: var(--color-secondary-700);
+}
+
+.badge-accent {
+  background-color: var(--color-accent-100);
+  color: var(--color-accent-700);
+}
+
+.badge-success {
+  background-color: var(--color-success-100);
+  color: var(--color-success-600);
+}
+
+/* ===== ANIMATION SYSTEM ===== */
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.6s ease-out;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* Staggered Animations */
+.animate-stagger-1 { animation-delay: 0.1s; }
+.animate-stagger-2 { animation-delay: 0.2s; }
+.animate-stagger-3 { animation-delay: 0.3s; }
+.animate-stagger-4 { animation-delay: 0.4s; }
+.animate-stagger-5 { animation-delay: 0.5s; }
+
+/* Hover Animations */
+.hover-lift {
+  transition: var(--transition-normal);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-scale {
+  transition: var(--transition-normal);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow {
+  transition: var(--transition-normal);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* ===== GLOBAL STYLING ===== */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 60px;
 }
 
 body {
-  background: linear-gradient(135deg, #f0f9ff 0%, #fdf2f8 100%);
+  background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-accent-50) 100%);
   min-height: 100vh;
   position: relative;
+  color: var(--color-text-primary);
 }
 
 body::before {
@@ -19,25 +722,59 @@ body::before {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(168, 237, 234, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(254, 214, 227, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
   pointer-events: none;
   z-index: -1;
 }
 
-/* Enhanced smooth scrolling */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 60px; /* Position section border at bottom of floating nav */
-}
-
-/* Smooth transitions for all interactive elements */
-* {
-  transition: all 0.2s ease-in-out;
-}
-
 /* Optimize scroll performance */
 body {
   -webkit-overflow-scrolling: touch;
+}
+
+/* Accessibility improvements */
+:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .post-card {
+    border: 2px solid #000;
+  }
+  
+  .dot {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Global transition system */
+* {
+  transition: var(--transition-normal);
+}
+
+/* Focus states for accessibility */
+*:focus {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
 }

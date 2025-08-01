@@ -237,6 +237,35 @@ try {
     background: transparent;
     position: relative;
   }
+  
+  /* Lazy loading styles */
+  .lazy-image {
+    background-size: cover;
+    background-position: center;
+    background-color: #f3f4f6;
+    position: relative;
+  }
+  
+  .lazy-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+  
+  .lazy-image.loaded::before {
+    display: none;
+  }
+  
+  @keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
 </style>
 <script>
   if (typeof window !== 'undefined') {
@@ -287,6 +316,27 @@ try {
       
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+      
+      // Lazy loading for images
+      const lazyImages = document.querySelectorAll('.lazy-image');
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.getAttribute('data-src');
+            if (src) {
+              img.style.backgroundImage = `url(${src})`;
+              img.classList.add('loaded');
+              observer.unobserve(img);
+            }
+          }
+        });
+      }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+      });
+      
+      lazyImages.forEach(img => imageObserver.observe(img));
     });
   }
 </script>
@@ -314,7 +364,7 @@ try {
     <p class="text-lg text-center max-w-2xl mb-8">Presentations I've made on strategy, technology, and more.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mb-8">
       <a href="/presentations/InvestingInBrands_Feb2024_v5.pdf" target="_blank" rel="noopener noreferrer" class="post-card">
-        <div class="post-image" style="background-image:url('/presentations/InvestingInBrands_CoverPhoto.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="post-image lazy-image" data-src="/presentations/InvestingInBrands_CoverPhoto.jpg"></div>
         <div class="post-content">
           <h2 class="post-title mb-0">Investing in Brands</h2>
           <p class="post-desc">Opportunities for Private Equity to invest in brands & drive value in core markets.</p>
@@ -325,7 +375,7 @@ try {
         </div>
       </a>
       <a href="/presentations/PECC - Dave and Buster's vF.pdf" target="_blank" rel="noopener noreferrer" class="post-card">
-        <div class="post-image" style="background-image:url('/presentations/DaveAndBusters_CoverPhoto.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="post-image lazy-image" data-src="/presentations/DaveAndBusters_CoverPhoto.jpg"></div>
         <div class="post-content">
           <h2 class="post-title mb-0">PECC: Dave & Buster's Buyout</h2>
           <p class="post-desc">A hypothetical LBO of Dave & Buster's.</p>
@@ -336,7 +386,7 @@ try {
         </div>
       </a>
       <a href="/presentations/StitchFix_Strategy_FullPresentation.pdf" target="_blank" rel="noopener noreferrer" class="post-card">
-        <div class="post-image" style="background-image:url('/presentations/StitchFix_Strategy.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="post-image lazy-image" data-src="/presentations/StitchFix_Strategy.jpg"></div>
         <div class="post-content">
           <h2 class="post-title mb-0">Stitch Fix Strategy Analysis</h2>
           <p class="post-desc">Where Should Stitch Fix Play and How Can It Win?</p>
@@ -347,7 +397,7 @@ try {
         </div>
       </a>
       <a href="/presentations/Peloton_GrowthStrategy.pdf" target="_blank" rel="noopener noreferrer" class="post-card">
-        <div class="post-image" style="background-image:url('/presentations/peloton.png'); background-size:cover; background-position:center;"></div>
+        <div class="post-image lazy-image" data-src="/presentations/peloton.png"></div>
         <div class="post-content">
           <h2 class="post-title mb-0">Peloton Growth Strategy</h2>
           <p class="post-desc">Strategic analysis and growth recommendations for Peloton.</p>
@@ -358,7 +408,7 @@ try {
         </div>
       </a>
       <a href="/presentations/TheFutureofStorytelling.pdf" target="_blank" rel="noopener noreferrer" class="post-card">
-        <div class="post-image" style="background-image:url('/presentations/storytelling.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="post-image lazy-image" data-src="/presentations/storytelling.jpg"></div>
         <div class="post-content">
           <h2 class="post-title mb-0">The Future of Storytelling</h2>
           <p class="post-desc">Exploring how technology is transforming narrative creation and audience engagement in the digital age.</p>
@@ -402,7 +452,7 @@ try {
     <p class="text-lg text-center max-w-2xl mb-8">Software, apps, and coding projects.</p>
     <div class="flex justify-center w-full max-w-4xl mb-8">
       <div class="post-card">
-        <div class="post-image" style="background-image:url('/coding/aiapp.png'); background-size:cover; background-position:center;"></div>
+        <div class="post-image lazy-image" data-src="/coding/aiapp.png"></div>
         <div class="post-content">
           <h2 class="post-title mb-0">AI Coach</h2>
           <p class="post-desc">Your AI Life Coach for Deep, Personalized Conversations</p>

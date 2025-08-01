@@ -2,8 +2,8 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 <MainLayout>
-	<div class="mt-8 md:mt-16 flex flex-col md:flex-row items-center gap-8 w-full">
-		<div class="w-80 h-80 rounded-xl border border-gray-300 shadow mb-6 md:mb-0 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+	<div class="mt-8 md:mt-16 flex flex-col md:flex-row items-center gap-8 w-full animate-fade-in-up">
+		<div class="w-64 h-64 md:w-80 md:h-80 rounded-xl border border-gray-300 shadow-lg hover-lift overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
 			<img 
 				src="/images/headshot_small_square.png" 
 				alt="Headshot" 
@@ -14,11 +14,14 @@ import MainLayout from '../layouts/MainLayout.astro';
 				loading="eager"
 			/>
 		</div>
-		<div class="flex-1">
-			<h1 class="text-3xl font-bold mb-4">About Me</h1>
-			<p class="mb-6 text-lg">I am an MBA candidate at Chicago Booth. Previously, I was in Strategy & Operations at Instacart, Strategy Consulting at IBM, and at Duke University.</p>
-			<p class="mb-6 text-lg">I am driven by problems at the intersection of strategy & technology.</p>
-			<p class="text-base">Check out some of my <a href="/projects/" class="text-blue-600 underline">projects</a> and <a href="/contact/" class="text-blue-600 underline">get in touch</a>.</p>
+		<div class="flex-1 pt-2 md:pt-4 animate-fade-in-up animate-stagger-1">
+			<h1 class="display-medium mb-6">About Me</h1>
+			<p class="text-body-medium mb-6">I am an MBA candidate at Chicago Booth. Previously, I was in Strategy & Operations at Instacart, Strategy Consulting at IBM, and at Duke University.</p>
+			<p class="text-body-medium mb-6">I am driven by problems at the intersection of strategy & technology.</p>
+			<div class="flex flex-wrap gap-4 mb-6">
+				<a href="/projects/" class="btn btn-primary">View Projects</a>
+				<a href="https://www.linkedin.com/in/ian-d-silva-a366bba6/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Get in Touch</a>
+			</div>
 		</div>
 	</div>
 </MainLayout>
