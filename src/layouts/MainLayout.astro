@@ -112,9 +112,20 @@ import '../styles/global.css';
     </main>
     
     <script>
-      // Handle smooth scrolling for navigation links
+      // Handle smooth scrolling for navigation links and mobile menu toggle
       if (typeof window !== 'undefined') {
         window.addEventListener('DOMContentLoaded', () => {
+          // Mobile menu toggle functionality
+          const mobileMenuButton = document.getElementById('mobile-menu-button');
+          const mobileMenu = document.querySelector('.md\\:hidden.hidden');
+          
+          if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+              mobileMenu.classList.toggle('hidden');
+              mobileMenu.classList.toggle('flex');
+            });
+          }
+          
           // Handle anchor links with smooth scrolling
           document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
