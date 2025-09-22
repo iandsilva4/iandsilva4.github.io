@@ -2,7 +2,7 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 
 // Helper to decode HTML entities
-function decodeHTMLEntities(str) {
+function decodeHTMLEntities(str: string): string {
   if (!str) return '';
   return str.replace(/&amp;/g, '&')
             .replace(/&lt;/g, '<')
@@ -14,7 +14,15 @@ function decodeHTMLEntities(str) {
 }
 
 // Server-side fetch of Substack posts
-let posts = [];
+interface SubstackPost {
+  title: string;
+  link: string;
+  description: string;
+  imageUrl: string;
+  pubDate: string;
+}
+
+let posts: SubstackPost[] = [];
 try {
   const response = await fetch('https://sandboxthoughts.substack.com/feed');
   if (response.ok) {
@@ -274,7 +282,7 @@ try {
       const dots = document.querySelectorAll('.dot-nav .dot');
       
       // Smooth scroll function
-      function smoothScrollTo(targetId) {
+      function smoothScrollTo(targetId: string) {
         const target = document.getElementById(targetId);
         if (target) {
           const offsetTop = target.offsetTop - 60; // Position section border at bottom of floating nav
@@ -322,7 +330,7 @@ try {
       const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const img = entry.target;
+            const img = entry.target as HTMLElement;
             const src = img.getAttribute('data-src');
             if (src) {
               img.style.backgroundImage = `url(${src})`;
@@ -363,6 +371,17 @@ try {
     <h1 class="text-4xl font-bold mb-2">Presentations</h1>
     <p class="text-lg text-center max-w-2xl mb-8">Presentations I've made on strategy, technology, and more.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mb-8">
+      <a href="https://docs.google.com/document/d/1b58R9M9K2c7OUfGHe-Gp7FP2DFJNxQI1MUmcvH_rftU/edit?tab=t.yrv4k646z2bz" target="_blank" rel="noopener noreferrer" class="post-card">
+        <div class="post-image lazy-image" data-src="/presentations/ChatGPT%20Strategy.png"></div>
+        <div class="post-content">
+          <h2 class="post-title mb-0">ChatGPT Product Strategy</h2>
+          <p class="post-desc">Transforming ChatGPT from a chatbot to a powerful superassistant.</p>
+          <div class="post-footer">
+            <span class="text-blue-600 underline text-sm">View document</span>
+            <span class="text-gray-500 text-xs">Sep 2025</span>
+          </div>
+        </div>
+      </a>
       <a href="/presentations/InvestingInBrands_Feb2024_v5.pdf" target="_blank" rel="noopener noreferrer" class="post-card">
         <div class="post-image lazy-image" data-src="/presentations/InvestingInBrands_CoverPhoto.jpg"></div>
         <div class="post-content">
